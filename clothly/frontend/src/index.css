@@ -1,0 +1,263 @@
+/* ═══════════════════════════════════════════════════
+   CLOTHLY — Global Design System
+   Color Palette: parchment, dust-grey, linen, powder-petal, almond-silk
+   Font: Inter (Google Fonts — loaded in index.html or index.js)
+═══════════════════════════════════════════════════ */
+
+/* ── Google Font Import ─────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap');
+
+/* ── CSS Custom Properties ──────────────────────── */
+:root {
+  --parchment:    #edede9;
+  --dust-grey:    #d6ccc2;
+  --linen:        #f5ebe0;
+  --powder-petal: #e3d5ca;
+  --almond-silk:  #d5bdaf;
+
+  /* Semantic tokens */
+  --bg-base:      var(--linen);
+  --bg-card:      #ffffffcc;
+  --bg-nav:       #ffffffee;
+  --text-primary:   #2d2926;
+  --text-secondary: #6b5f57;
+  --text-muted:     #9e8e85;
+  --border-color:   var(--dust-grey);
+  --shadow-sm:  0 1px 4px rgba(100,80,60,0.08);
+  --shadow-md:  0 4px 20px rgba(100,80,60,0.12);
+  --shadow-lg:  0 12px 40px rgba(100,80,60,0.16);
+  --radius-sm:  8px;
+  --radius-md:  14px;
+  --radius-lg:  20px;
+  --radius-xl:  32px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset & Base ───────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ── Typography ─────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+p { color: var(--text-secondary); line-height: 1.7; }
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+/* ── Layout ─────────────────────────────────────── */
+.cl-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Remove bootstrap container override */
+.container { max-width: 1200px; }
+main.container { padding-top: 2rem; padding-bottom: 4rem; }
+
+/* ── Buttons ─────────────────────────────────────── */
+.btn-clothly {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--radius-xl);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.btn-primary-clothly {
+  background: var(--text-primary);
+  color: #fff;
+}
+.btn-primary-clothly:hover {
+  background: #1a1108;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+  color: #fff;
+}
+
+.btn-outline-clothly {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-color);
+}
+.btn-outline-clothly:hover {
+  background: var(--powder-petal);
+  border-color: var(--almond-silk);
+  transform: translateY(-1px);
+}
+
+.btn-ghost-clothly {
+  background: var(--powder-petal);
+  color: var(--text-primary);
+  border: none;
+}
+.btn-ghost-clothly:hover {
+  background: var(--almond-silk);
+  transform: translateY(-1px);
+}
+
+.btn-danger-clothly {
+  background: #f0e0d9;
+  color: #8b2f2f;
+  border: none;
+}
+.btn-danger-clothly:hover {
+  background: #e8c8bc;
+  transform: translateY(-1px);
+}
+
+/* ── Cards ──────────────────────────────────────── */
+.cl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--dust-grey);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(8px);
+  transition: var(--transition);
+}
+.cl-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* ── Form Controls ──────────────────────────────── */
+.cl-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--dust-grey);
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.7);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  transition: var(--transition);
+  outline: none;
+}
+.cl-input:focus {
+  border-color: var(--almond-silk);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(213,189,175,0.25);
+}
+.cl-input::placeholder { color: var(--text-muted); }
+
+.cl-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+/* ── Section Titles ─────────────────────────────── */
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.section-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+/* ── Badge ──────────────────────────────────────── */
+.cl-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: var(--text-primary);
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* ── Divider ─────────────────────────────────────── */
+.cl-divider {
+  height: 1px;
+  background: var(--dust-grey);
+  border: none;
+  margin: 1.5rem 0;
+}
+
+/* ── Chip / Tag ──────────────────────────────────── */
+.cl-chip {
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: var(--powder-petal);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* ── Page Hero Band ──────────────────────────────── */
+.cl-hero-band {
+  background: var(--parchment);
+  border-radius: var(--radius-xl);
+  padding: 3rem 2.5rem;
+  margin-bottom: 3rem;
+  border: 1px solid var(--dust-grey);
+}
+
+/* ── Skeleton loader ─────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -800px 0; }
+  100% { background-position:  800px 0; }
+}
+.cl-skeleton {
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, var(--powder-petal) 25%, var(--parchment) 50%, var(--powder-petal) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ── Fade-in Animation ───────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.4s ease both; }
+
+/* ── Responsive Utilities ────────────────────────── */
+@media (max-width: 768px) {
+  .cl-hero-band { padding: 2rem 1.25rem; }
+  .section-title { font-size: 1.4rem; }
+}

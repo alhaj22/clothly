@@ -1,0 +1,18 @@
+{
+  "name": "clothly",
+  "version": "1.0.0",
+  "description": "Clothly — Full-Stack MERN E-Commerce Application",
+  "private": true,
+  "scripts": {
+    "install:backend": "cd clothly/backend && npm install",
+    "install:frontend": "cd clothly/frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "dev:backend": "cd clothly/backend && npm run dev",
+    "dev:frontend": "cd clothly/frontend && npm start",
+    "build:frontend": "cd clothly/frontend && npm run build",
+    "start:backend": "cd clothly/backend && npm start"
+  },
+  "engines": {
+    "node": ">=18.x"
+  }
+}
